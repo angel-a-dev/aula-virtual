@@ -274,3 +274,29 @@ function cerrarModalResolver() {
     document.getElementById('modalResolverCuestionario').style.display = 'none'; 
     document.getElementById('formResolverCuestionario').reset(); 
 }
+/* --- Al final de js/curso.js --- */
+
+function abrirModalTarea() { 
+    const modal = document.getElementById('modalNuevaTarea');
+    if(modal) {
+        modal.style.display = 'flex'; 
+    } else {
+        console.error("El modal 'modalNuevaTarea' no existe en el HTML.");
+    }
+}
+
+function cerrarModalTarea() { 
+    const modal = document.getElementById('modalNuevaTarea');
+    if(modal) {
+        modal.style.display = 'none'; 
+        document.getElementById('formNuevaTarea').reset(); 
+    }
+}
+
+// Asegúrate de que el botón de publicar tenga el listener
+document.getElementById('formNuevaTarea')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Aquí iría tu lógica para guardar la tarea en localStorage
+    console.log("Tarea guardada...");
+    cerrarModalTarea();
+});
